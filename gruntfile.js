@@ -1,3 +1,4 @@
+/*jshint node: true*/
 'use strict';
 
 module.exports = function(grunt) {
@@ -7,14 +8,14 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     jshint: {
-      all: ['myMod/*.js'],
+      all: ['myMod/*.js', 'server.js'],
       options: {
         jshintrc: true
       }
     },
 
     jscs: {
-      src: 'myMod/**/*.js',
+      src: ['myMod/**/*.js', 'server.js'],
       options: {
         config: '.jscsrc'
       }
