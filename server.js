@@ -13,15 +13,13 @@ app.use(function(req, res, next) {
 });
 
 app.route('/:name')
-  .get(function(req, res, next) {
+  .get(function(req, res) {
     var file = ('./data/' + req.params.name + '.json');
     var stream = fs.createReadStream(file);
     stream
     .on('readable', function() {
       res.writeHead(200, {'Content-Type': 'application/json'});
-      console.log(res);
       stream.pipe(res);
-      next();
     });
   })
   .post(function(req, res) {

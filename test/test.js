@@ -21,4 +21,13 @@ describe('Simple Json Database', function() {
       done();
     });
   });
+  it('should respond to a get request and post the object in the file', function(done) {
+    chai.request('http://localhost:3000')
+    .get('/hi2')
+    .end(function(err, res) {
+      expect(err).to.be.eql(null);
+      expect(res.body).to.be.eql({ msg: 'hello'});
+      done();
+    });
+  });
 });
